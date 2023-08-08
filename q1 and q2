@@ -1,0 +1,62 @@
+
+--1.
+--We are running an experiment at an item-level, which means all users who visit will see the same page, but the layout of different item pages may differ.
+--Compare this table to the assignment events we captured for user_level_testing.
+--Does this table have everything you need to compute metrics like 30-day view-binary?
+
+-- The answer is no, there is lack of created_at data.
+
+/*
+SELECT 
+  * 
+FROM 
+  dsv1069.final_assignments_qa
+*/
+
+
+--2.
+--Reformat the final_assignments_qa to look like the final_assignments table, filling in any missing values with a placeholder of the appropriate data type.
+
+/*
+SELECT 
+  * 
+FROM 
+  dsv1069.final_assignments_qa
+*/
+
+SELECT item_id,
+       test_a AS test_assignment,
+       'test_a' AS test_number,
+       CAST('2023-08-01 00:00:00' AS timestamp) AS test_start_date
+FROM dsv1069.final_assignments_qa
+UNION ALL
+SELECT item_id,
+       test_b AS test_assignment,
+       'test_b' AS test_number,
+       CAST('2023-08-01 00:00:00' AS timestamp) AS test_start_date
+FROM dsv1069.final_assignments_qa
+UNION ALL
+SELECT item_id,
+       test_c AS test_assignment,
+       'test_c' AS test_number,
+       CAST('2023-08-01 00:00:00' AS timestamp) AS test_start_date
+FROM dsv1069.final_assignments_qa
+UNION ALL
+SELECT item_id,
+       test_d AS test_assignment,
+       'test_d' AS test_number,
+       CAST('2023-08-01 00:00:00' AS timestamp) AS test_start_date
+FROM dsv1069.final_assignments_qa
+UNION ALL
+SELECT item_id,
+       test_e AS test_assignment,
+       'test_e' AS test_number,
+       CAST('2023-08-01 00:00:00' AS timestamp) AS test_start_date
+FROM dsv1069.final_assignments_qa
+UNION ALL
+SELECT item_id,
+       test_f AS test_assignment,
+       'test_f' AS test_number,
+       CAST('2023-08-01 00:00:00' AS timestamp) AS test_start_date
+FROM dsv1069.final_assignments_qa
+
